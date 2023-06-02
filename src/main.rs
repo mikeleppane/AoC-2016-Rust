@@ -1,6 +1,6 @@
 use clap::Parser;
 
-use aoc_2016_rust::{Runner, Selector};
+use aoc_2016_rust::Selector;
 
 use crate::solutions::run;
 

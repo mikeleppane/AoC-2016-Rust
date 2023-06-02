@@ -107,9 +107,21 @@ impl Runner for Day02 {
 // --------------------------------------
 #[cfg(test)]
 mod tests {
-    #[test]
-    fn part1_works() {}
+    use super::*;
 
     #[test]
-    fn part2_works() {}
+    fn part1_works() {
+        let mut day01 = Day02::new();
+        day01.parse();
+        let output = day01.part1();
+        assert_eq!(output[0], "78293")
+    }
+
+    #[test]
+    fn part2_works() {
+        let mut day02 = Day02::new();
+        day02.parse();
+        let output = day02.part2();
+        assert_eq!(output[0], "AC8C8")
+    }
 }
