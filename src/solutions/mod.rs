@@ -8,6 +8,7 @@ use crate::solutions::day05::Day05;
 use crate::solutions::day06::Day06;
 use crate::solutions::day07::Day07;
 use crate::solutions::day08::Day08;
+use crate::solutions::day09::Day09;
 use crate::Selector;
 
 mod day01;
@@ -18,6 +19,7 @@ mod day05;
 mod day06;
 mod day07;
 mod day08;
+mod day09;
 
 pub fn run(which: Selector) {
     let mut day01 = Day01::new();
@@ -28,10 +30,11 @@ pub fn run(which: Selector) {
     let mut day06 = Day06::new();
     let mut day07 = Day07::new();
     let mut day08 = Day08::new();
+    let mut day09 = Day09::new();
 
     let mut days: Vec<&mut dyn Runner> = vec![
         &mut day01, &mut day02, &mut day03, &mut day04, &mut day05, &mut day06, &mut day07,
-        &mut day08,
+        &mut day08, &mut day09,
     ];
 
     match which {
