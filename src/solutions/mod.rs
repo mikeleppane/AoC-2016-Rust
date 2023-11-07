@@ -13,6 +13,7 @@ use crate::solutions::day08::Day08;
 use crate::solutions::day09::Day09;
 use crate::solutions::day10::Day10;
 use crate::solutions::day12::Day12;
+use crate::solutions::day13::Day13;
 use crate::Selector;
 
 mod day01;
@@ -26,6 +27,7 @@ mod day08;
 mod day09;
 mod day10;
 mod day12;
+mod day13;
 
 pub fn run(which: Selector) {
     let mut day01 = Day01::new();
@@ -39,6 +41,7 @@ pub fn run(which: Selector) {
     let mut day09 = Day09::new();
     let mut day10 = Day10::new();
     let mut day12 = Day12::new();
+    let mut day13 = Day13::new();
 
     let mut days: HashMap<u8, &mut dyn Runner> = HashMap::new();
     days.insert(1, &mut day01);
@@ -52,6 +55,7 @@ pub fn run(which: Selector) {
     days.insert(9, &mut day09);
     days.insert(10, &mut day10);
     days.insert(12, &mut day12);
+    days.insert(13, &mut day13);
 
     match which {
         Selector::Last => {
