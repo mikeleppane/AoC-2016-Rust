@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use aoc_2016_rust::{run_solution, Runner};
 use day01::Day01;
 use day02::Day02;
@@ -38,25 +40,33 @@ pub fn run(which: Selector) {
     let mut day10 = Day10::new();
     let mut day12 = Day12::new();
 
-    let mut days: Vec<&mut dyn Runner> = vec![
-        &mut day01, &mut day02, &mut day03, &mut day04, &mut day05, &mut day06, &mut day07,
-        &mut day08, &mut day09, &mut day10, &mut day12,
-    ];
+    let mut days: HashMap<u8, &mut dyn Runner> = HashMap::new();
+    days.insert(1, &mut day01);
+    days.insert(2, &mut day02);
+    days.insert(3, &mut day03);
+    days.insert(4, &mut day04);
+    days.insert(5, &mut day05);
+    days.insert(6, &mut day06);
+    days.insert(7, &mut day07);
+    days.insert(8, &mut day08);
+    days.insert(9, &mut day09);
+    days.insert(10, &mut day10);
+    days.insert(12, &mut day12);
 
     match which {
         Selector::Last => {
-            let last = days.len() - 1;
-            if let Some(d) = days.get_mut(last) {
+            let last = *days.keys().max().unwrap();
+            if let Some(d) = days.get_mut(&last) {
                 run_solution(*d);
             }
         }
         Selector::All => {
-            for d in days {
-                run_solution(d);
+            for d in days.values_mut() {
+                run_solution(*d);
             }
         }
         Selector::One(num) => {
-            if let Some(d) = days.get_mut(num - 1) {
+            if let Some(d) = days.get_mut(&(num as u8)) {
                 run_solution(*d);
             }
         }
